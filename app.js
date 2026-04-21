@@ -13,7 +13,7 @@ const state = {
 const homeScreen   = document.getElementById("home-screen");
 const quizScreen   = document.getElementById("quiz-screen");
 const resultScreen = document.getElementById("result-screen");
-const headerTitle  = document.getElementById("header-title");
+const headerLogo   = document.getElementById("header-logo");
 const btnBack      = document.getElementById("btn-back");
 
 // quiz elements
@@ -48,7 +48,6 @@ function showScreen(name) {
 
 // ── Home ─────────────────────────────────────────────────────────
 function renderHome() {
-  headerTitle.textContent = "SonoLearn";
   showScreen("home");
 
   const list = document.getElementById("quiz-list");
@@ -73,7 +72,6 @@ function startQuiz(quiz) {
   state.currentQuiz = quiz;
   state.currentQuestionIndex = 0;
   state.score = 0;
-  headerTitle.textContent = quiz.title;
   showScreen("quiz");
   loadQuestion();
 }
@@ -327,7 +325,6 @@ function showResults() {
   resultSub.textContent   = `Você acertou ${state.score} de ${total} questões.`;
   showScreen("result");
   progressFill.style.width = "100%";
-  headerTitle.textContent  = state.currentQuiz.title;
 }
 
 document.getElementById("btn-retry").addEventListener("click", () => {
