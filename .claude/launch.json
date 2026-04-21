@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "pocus-app",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["/Users/joaomenesesjunior/pocus-app/serve.py"],
+      "port": 3333,
+      "autoPort": true
+    }
+  ]
+}
