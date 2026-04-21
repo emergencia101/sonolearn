@@ -60,7 +60,7 @@ function renderHome() {
       <div class="quiz-card-icon">🫀</div>
       <div class="quiz-card-info">
         <h3>${quiz.title}</h3>
-        <p>${quiz.questions.length} questions</p>
+        <p>${quiz.questions.length} questões</p>
       </div>
     `;
     card.addEventListener("click", () => startQuiz(quiz));
@@ -91,7 +91,7 @@ function loadQuestion() {
 
   // progress
   progressFill.style.width = `${(state.currentQuestionIndex / total) * 100}%`;
-  questionCounter.textContent = `QUESTION ${state.currentQuestionIndex + 1} OF ${total}`;
+  questionCounter.textContent = `QUESTÃO ${state.currentQuestionIndex + 1} DE ${total}`;
 
   // image
   usImage.src = q.image;
@@ -127,7 +127,7 @@ function showPlaceholder() {
     ph = document.createElement("div");
     ph.id = "img-placeholder";
     ph.className = "img-placeholder";
-    ph.innerHTML = `<span>🖼️</span><p>Add your ultrasound image to the <strong>images/</strong> folder</p>`;
+    ph.innerHTML = `<span>🖼️</span><p>Adicione sua imagem de ultrassom à pasta <strong>images/</strong></p>`;
     imageWrap.insertBefore(ph, usImage);
   }
   ph.style.display = "";
@@ -215,7 +215,7 @@ confirmBtn.addEventListener("click", () => {
   }
 
   // answer panel
-  answerStatus.textContent = state.correct ? "This answer is correct." : "Incorrect — see the correct location above.";
+  answerStatus.textContent = state.correct ? "Resposta correta!" : "Incorreto — veja a localização correta acima.";
   answerStatus.className   = "answer-status " + (state.correct ? "correct" : "wrong");
   answerExp.textContent    = q.explanation || "";
   answerPanel.classList.add("visible");
@@ -323,8 +323,8 @@ function showResults() {
   const total = state.currentQuiz.questions.length;
   const pct   = Math.round((state.score / total) * 100);
   resultScore.textContent = `${pct}%`;
-  resultTitle.textContent = pct === 100 ? "Perfect score!" : pct >= 70 ? "Good job!" : "Keep practicing!";
-  resultSub.textContent   = `You got ${state.score} of ${total} questions correct.`;
+  resultTitle.textContent = pct === 100 ? "Pontuação perfeita!" : pct >= 70 ? "Bom trabalho!" : "Continue praticando!";
+  resultSub.textContent   = `Você acertou ${state.score} de ${total} questões.`;
   showScreen("result");
   progressFill.style.width = "100%";
   headerTitle.textContent  = state.currentQuiz.title;
